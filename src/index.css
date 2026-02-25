@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0A0A0A;
+  --color-txt: #FFFFFF;
+  --color-accent: #FF2A2A;
+  --color-accent-dark: #CC1111;
+  --color-gray-800: #1A1A1A;
+  --color-gray-700: #2A2A2A;
+  --color-gray-600: #3A3A3A;
+  --color-gray-400: #888888;
+
+  --font-oswald: 'Oswald', sans-serif;
+  --font-teko: 'Teko', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+}
+
+/* ===== BASE ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-txt);
+  font-family: var(--font-roboto);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== 3D MOCKUP FLOAT ===== */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotateY(-8deg) rotateX(4deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotateY(-8deg) rotateX(4deg);
+  }
+}
+
+.mockup-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ===== MARQUEE ===== */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 12s linear infinite;
+}
+
+/* ===== PULSE DOT ===== */
+@keyframes pulseDot {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.6);
+    opacity: 0.4;
+  }
+}
+
+.pulse-dot {
+  animation: pulseDot 1.5s ease-in-out infinite;
+}
+
+/* ===== CTA BUTTON ===== */
+.cta-btn {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: white;
+  font-family: var(--font-oswald);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 3px solid white;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.cta-btn:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px #fff;
+  background-color: var(--color-accent-dark);
+}
+
+.cta-btn:active {
+  transform: translate(0px, 0px);
+  box-shadow: 0px 0px 0px #fff;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 3px;
+}
+
+/* ===== TIMELINE ===== */
+.timeline-line-bg {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-gray-700);
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .timeline-line-bg {
+    left: 24px;
+  }
+}
+
+/* ===== DIAGONAL RIBBON ===== */
+.diagonal-ribbon {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  transform: rotate(-3deg) scale(1.1);
+  z-index: 10;
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background: var(--color-accent);
+  color: white;
+}

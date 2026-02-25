@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day Shred Protocol — Forge Form Tactical</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;700&family=Oswald:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --red: #FF2A2A;
+            --black: #000000;
+            --dark: #0A0A0A;
+            --grey: #1A1A1A;
+            --mid-grey: #2A2A2A;
+            --white: #FFFFFF;
+            --off-white: #E0E0E0;
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'JetBrains Mono', monospace;
+            --font-heading: 'Oswald', sans-serif;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        /* ===== PAGE / PRINT SYSTEM ===== */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            padding: 40px 50px;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            break-after: page;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media screen {
+            .page {
+                margin: 0 auto 4px auto;
+                box-shadow: 0 0 40px rgba(255, 42, 42, 0.08);
+            }
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1 {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            line-height: 0.95;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        h1 .red {
+            color: var(--red);
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        h3 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: var(--red);
+            letter-spacing: 2px;
+            margin: 16px 0 8px;
+        }
+
+        .page-red h3 {
+            color: var(--black) !important;
+        }
+
+        p,
+        li {
+            font-size: 0.78rem;
+            color: var(--off-white);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .small {
+            font-size: 0.7rem;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        .red-text {
+            color: var(--red);
+        }
+
+        .white-text {
+            color: var(--white);
+        }
+
+        /* ===== NOISE TEXTURE OVERLAY ===== */
+        .noise::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+            background-size: 200px 200px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .page>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== GRID OVERLAY ===== */
+        .grid-overlay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 42, 42, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 42, 42, 0.06) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ===== TABLES ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.75rem;
+        }
+
+        th {
+            background: var(--red);
+            color: var(--black);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 10px 12px;
+            text-align: left;
+            font-size: 0.72rem;
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(255, 42, 42, 0.25);
+            color: var(--off-white);
+            font-size: 0.73rem;
+        }
+
+        tr:hover td {
+            background: rgba(255, 42, 42, 0.04);
+        }
+
+        table.red-border {
+            border: 2px solid var(--red);
+        }
+
+        table.red-border td {
+            border-bottom: 1px solid rgba(255, 42, 42, 0.4);
+        }
+
+        /* ===== WATERMARK ===== */
+        .watermark {
+            position: absolute;
+            font-family: var(--font-display);
+            font-size: 18rem;
+            color: rgba(255, 42, 42, 0.06);
+            font-weight: 700;
+            line-height: 1;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .watermark-center {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .watermark-right {
+            bottom: 40px;
+            right: 40px;
+        }
+
+        /* ===== FINISHER ===== */
+        .finisher {
+            margin-top: 16px;
+            padding: 12px 16px;
+            border-left: 4px solid var(--red);
+            background: rgba(255, 42, 42, 0.06);
+            font-size: 0.75rem;
+            color: var(--off-white);
+        }
+
+        .finisher strong {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        /* ===== VERTICAL RED LINE ===== */
+        .red-line-left::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--red);
+            z-index: 1;
+        }
+
+        /* ===== COVER PAGE ===== */
+        .cover {
+            background:
+                linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(255, 42, 42, 0.1) 100%),
+                radial-gradient(ellipse at 30% 80%, rgba(255, 42, 42, 0.15), transparent 60%),
+                var(--black);
+            justify-content: flex-end;
+            padding-bottom: 70px;
+        }
+
+        .cover h1 {
+            font-size: 7rem;
+            line-height: 0.88;
+            margin-bottom: 16px;
+        }
+
+        .cover .subtitle {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--off-white);
+            margin-bottom: 6px;
+        }
+
+        .cover .author {
+            font-family: var(--font-body);
+            font-size: 0.68rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 24px;
+        }
+
+        /* ===== SPLIT LAYOUT ===== */
+        .split-page {
+            padding: 0;
+        }
+
+        .split-top {
+            height: 50%;
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .split-bottom {
+            height: 50%;
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .split-red {
+            background: var(--red);
+        }
+
+        .split-red h2,
+        .split-red h3 {
+            color: var(--black);
+        }
+
+        .split-red p,
+        .split-red li,
+        .split-red .finisher {
+            color: var(--black);
+        }
+
+        .split-red .finisher {
+            border-left-color: var(--black);
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .split-black {
+            background: var(--black);
+        }
+
+        /* ===== FULL RED PAGE ===== */
+        .page-red {
+            background: var(--red);
+        }
+
+        .page-red h1,
+        .page-red h2 {
+            color: var(--black);
+        }
+
+        .page-red h3 {
+            color: var(--black);
+        }
+
+        .page-red p,
+        .page-red li,
+        .page-red td {
+            color: var(--black);
+        }
+
+        .page-red th {
+            background: var(--black);
+            color: var(--red);
+        }
+
+        .page-red td {
+            border-bottom-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .page-red table.red-border {
+            border-color: var(--black);
+        }
+
+        .page-red .finisher {
+            border-left-color: var(--black);
+            background: rgba(0, 0, 0, 0.1);
+            color: var(--black);
+        }
+
+        .page-red .finisher strong {
+            color: var(--black);
+        }
+
+        .page-red .workout-copy {
+            color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* ===== DARK GREY PAGE ===== */
+        .page-grey {
+            background: var(--grey);
+        }
+
+        /* ===== THREE BLOCKS ===== */
+        .three-blocks {
+            padding: 0;
+        }
+
+        .block {
+            height: 33.33%;
+            padding: 24px 50px;
+            border-bottom: 4px solid var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .block:last-child {
+            border-bottom: none;
+        }
+
+        .block .block-num {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-display);
+            font-size: 10rem;
+            color: rgba(255, 42, 42, 0.08);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-item {
+            margin-bottom: 16px;
+        }
+
+        .faq-q {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .faq-a {
+            font-size: 0.75rem;
+            color: var(--off-white);
+            padding-left: 16px;
+            border-left: 2px solid rgba(255, 42, 42, 0.3);
+        }
+
+        /* ===== FOCUS TAG ===== */
+        .focus {
+            display: inline-block;
+            background: rgba(255, 42, 42, 0.12);
+            border: 1px solid var(--red);
+            padding: 4px 12px;
+            font-size: 0.68rem;
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .page-red .focus {
+            background: rgba(0, 0, 0, 0.12);
+            border-color: var(--black);
+            color: var(--black);
+        }
+
+        /* ===== PHASE LABEL ===== */
+        .phase-label {
+            display: inline-block;
+            background: var(--red);
+            color: var(--black);
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            margin-bottom: 14px;
+        }
+
+        .page-red .phase-label {
+            background: var(--black);
+            color: var(--red);
+        }
+
+        /* ===== SKULL WATERMARK ===== */
+        .skull-watermark::after {
+            content: '☠';
+            position: absolute;
+            font-size: 20rem;
+            color: rgba(255, 255, 255, 0.02);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ===== WARMUP LIST ===== */
+        .warmup-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .warmup-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 42, 42, 0.15);
+            font-size: 0.78rem;
+        }
+
+        .warmup-list li strong {
+            color: var(--red);
+        }
+
+        /* ===== CROSSHAIR ===== */
+        .crosshair::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            transform: translate(-50%, -50%);
+            border: 1px solid rgba(255, 42, 42, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .crosshair::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 1px;
+            height: 100%;
+            background: rgba(255, 42, 42, 0.05);
+            z-index: 0;
+        }
+
+        /* ===== MISC ===== */
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--red);
+            margin: 16px 0;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 16px;
+            right: 24px;
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.25);
+            letter-spacing: 2px;
+        }
+
+        .page-red .page-number {
+            color: rgba(0, 0, 0, 0.35);
+        }
+
+        .workout-copy {
+            margin-bottom: 20px;
+            color: rgba(224, 224, 224, 0.85);
+            font-size: 0.76rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PAGE 1: COVER -->
+    <section class="page cover noise grid-overlay">
+        <div class="watermark watermark-right" style="font-size:28rem; opacity:0.04;">S</div>
+        <h1>30-DAY<br><span class="red">SHRED</span><br>PROTOCOL</h1>
+        <div class="divider"></div>
+        <p class="subtitle">THE FORGE FORM: NO-BS METABOLIC CONDITIONING FOR MEN.</p>
+        <p class="subtitle small" style="letter-spacing:2px; color: var(--off-white);">MANDATORY PROTOCOLS FOR
+            AGGRESSIVE FAT LOSS AND LEAN MUSCLE RETENTION.</p>
+        <p class="subtitle small" style="letter-spacing:2px; color: rgba(255,255,255,0.5);">WRITTEN IN IRON. EXECUTED IN
+            SWEAT.</p>
+        <p class="author">AUTHOR: FORGE FORM TACTICAL</p>
+        <span class="page-number">01</span>
+    </section>
+
+    <!-- PAGE 2: WARNING -->
+    <section class="page noise red-line-left skull-watermark" style="background: var(--black); padding-left: 36px;">
+        <h2 style="font-size: 3.2rem;">WARNING:<br>THIS IS NOT<br>FOR THE WEAK.</h2>
+        <div class="divider"></div>
+        <p>Read this carefully. This protocol is not a suggestion. It is not a gentle, generic routine designed to keep
+            you comfortable. Comfort is the enemy of progress. If it took you years to build a body you despise, it will
+            not be dismantled with half-measures.</p>
+        <p>The next 30 days require pain, discipline, and absolute compliance. We do not negotiate with fatigue. We do
+            not skip days.</p>
+        <p>Most programs fail because they ask you what you want to do today. The Forge does not care what you want. It
+            demands what you need to do: lift the iron, endure the conditioning, and maintain the absolute integrity of
+            your diet.</p>
+        <p style="margin-top: 20px;">If you want soft results, close this document. If you want to forge a physique
+            built of iron and discipline, turn the page.</p>
+        <p class="red-text bold uppercase" style="margin-top: 24px; font-size: 0.85rem; letter-spacing: 3px;">The forge
+            is open.</p>
+        <span class="page-number">02</span>
+    </section>
+
+    <!-- PAGE 3: THE 3 LAWS -->
+    <section class="page three-blocks noise" style="background: var(--black);">
+        <div class="block">
+            <span class="block-num">01</span>
+            <h2 style="font-size: 2rem; margin-bottom: 10px;">THE 3 LAWS OF THE FORGE</h2>
+            <h3>RULE 01: THE CALORIC DEFICIT IS ABSOLUTE.</h3>
+            <p>Thermodynamics does not care about your feelings. You must consume fewer calories than you burn. Track
+                your intake, or eat the exact same identical meals every single day. Protein is non-negotiable. You
+                cannot out-train a garbage diet.</p>
+        </div>
+        <div class="block">
+            <span class="block-num">02</span>
+            <h3>RULE 02: YOU DO NOT SKIP EXERCISE.</h3>
+            <p>You do not find time to train; you make time to train. You will sweat, you will lift heavy, and you will
+                finish the circuit. Even when sore, even when tired, the work is the work.</p>
+        </div>
+        <div class="block">
+            <span class="block-num">03</span>
+            <h3>RULE 03: SLEEP IS YOUR ONLY SUPPLEMENT.</h3>
+            <p>Fat burner pills are garbage designed to part fools from their money. Your body repairs central nervous
+                system damage and oxidizes fat while you are unconscious. 8 hours of sleep is a mandatory phase of this
+                protocol.</p>
+        </div>
+        <span class="page-number">03</span>
+    </section>
+
+    <!-- PAGE 4: PROTOCOL EXECUTION -->
+    <section class="page noise grid-overlay" style="background: var(--black);">
+        <h2>PROTOCOL EXECUTION:<br>HOW TO READ THE GRID</h2>
+        <div class="divider"></div>
+        <h3>THE GEAR</h3>
+        <p>Two moderately heavy dumbbells and a floor. No hyper-specialized machines. Keep it primal.</p>
+
+        <h3>THE PHASES</h3>
+        <p><strong class="red-text">WEEK 1: THE FOUNDATION.</strong> Form over ego. Establish the baseline. Wake up the
+            muscles.</p>
+        <p><strong class="red-text">WEEK 2: THE FIRE.</strong> Increased weight. Decreased rest. Your lungs will burn.
+        </p>
+        <p><strong class="red-text">WEEK 3: THE FORGE.</strong> Extreme high volume. Severe conditioning. Psychological
+            warfare.</p>
+        <p><strong class="red-text">WEEK 4: THE RECKONING.</strong> Maximum intensity. AMRAP protocols. Leave nothing in
+            the tank.</p>
+
+        <h3>EXECUTION STANDARDS</h3>
+        <p>When the table dictates a time block (e.g., 45s), you work for maximum reps (AMRAP) within that window before
+            resting. Do not drop the iron until the clock stops. "Failure" means your form broke entirely, not that it
+            "started getting hard". Push past the boundary.</p>
+        <span class="page-number">04</span>
+    </section>
+
+    <!-- PAGE 5: PRE-FORGE WARMUP -->
+    <section class="page noise grid-overlay" style="background: var(--grey);">
+        <h2>PRE-FORGE:<br>NEURAL ACTIVATION</h2>
+        <div class="divider"></div>
+        <p>Going into these circuits cold is a guarantee for injury and suboptimal performance. You must prime the
+            central nervous system, increase synovial fluid in the joints, and spike your core temperature. This
+            sequence is mandatory before every single workout. No exceptions.</p>
+        <h3>EXECUTE 3 ROUNDS IN UNBROKEN SUCCESSION:</h3>
+        <ul class="warmup-list">
+            <li><strong>JUMPING JACKS:</strong> 50 Reps — Get the heart rate spiking.</li>
+            <li><strong>WALKOUT TO PLANK:</strong> 10 Reps — Activate the core and stretch the hamstrings.</li>
+            <li><strong>SPIDERMAN LUNGES:</strong> 10 Reps per leg — Open up the hips and thoracic spine violently.</li>
+            <li><strong>AIR SQUATS:</strong> 20 Reps — Drive knees out, chest up.</li>
+            <li><strong>ARM CIRCLES:</strong> 15 Reps — Small to large, forward and backward. Prep the rotators.</li>
+        </ul>
+        <p style="margin-top: 16px;">Once complete, your lungs should be open and you should be lightly sweating. Pick
+            up the dumbbells and initiate the day's protocol.</p>
+        <span class="page-number">05</span>
+    </section>
+
+    <!-- PAGE 6: NUTRITION PROTOCOL -->
+    <section class="page noise" style="background: var(--black);">
+        <span class="phase-label">THE ENGINE ROOM</span>
+        <h2>NUTRITIONAL PROTOCOL:<br>THE FUEL</h2>
+        <div class="divider"></div>
+        <p>If you execute this training perfectly but eat like a child, you will fail. The Shred Protocol is not magic;
+            it relies on strict energy balance and macronutrient optimization. Your body is a machine. Stop putting
+            cheap fuel in it.</p>
+
+        <h3>1. CALORIC DEFICIT (NON-NEGOTIABLE)</h3>
+        <p>Take your goal bodyweight in pounds and multiply by 12. That is your daily caloric ceiling. If you want to
+            weigh 180 lbs, you eat 2160 calories. No cheating. Every bite counts.</p>
+
+        <h3>2. PROTEIN: THE BUILDING BLOCK</h3>
+        <p>You will consume 1 gram of protein per pound of goal bodyweight every single day. This is what prevents
+            muscle catabolism while you are burning fat. Lean meats, eggs, low-fat dairy.</p>
+
+        <h3>3. CARBOHYDRATES & FATS</h3>
+        <p>Carbohydrates are energy for the heavy lifting. Fats regulate hormones. Keep carbs around your workout window
+            (pre and post-workout). Avoid heavy carbs right before bed. Keep dietary fats moderate (nuts, olive oil,
+            avocado).</p>
+
+        <h3>4. HYDRATION STANDARD</h3>
+        <p>Drink one full gallon (3.7 liters) of water daily. It flushes metabolic waste, aids recovery, and suppresses
+            artificial hunger signals. Black coffee and green tea are approved; sugary drinks are poison.</p>
+        <span class="page-number">06</span>
+    </section>
+
+    <!-- PAGE 7: MEAL IDEAS -->
+    <section class="page noise grid-overlay" style="background: var(--black);">
+        <h2>FIELD RATIONS:<br>BATTLE-TESTED MEALS</h2>
+        <div class="divider"></div>
+        <p>Do not overcomplicate your diet. Complexity breeds excuses. Build a routine of 3-4 trusted meals and rotate
+            them ruthlessly. Food is not entertainment; it is fuel. Here are your default rations.</p>
+
+        <h3>BREAKFAST INITIATION</h3>
+        <ul class="warmup-list">
+            <li><strong>THE ANVIL:</strong> 3 whole eggs, 3 egg whites, 1 cup dry oats cooked with cinnamon and
+                blueberries. (High protein, slow-release carbs).</li>
+            <li><strong>THE FASTED:</strong> Black coffee, water, and pure hatred. Do not eat until lunch if utilizing
+                Intermittent Fasting routines to extend the fat-burning window.</li>
+        </ul>
+
+        <h3>LUNCH / MID-DAY REFUEL</h3>
+        <ul class="warmup-list">
+            <li><strong>THE ENGINE:</strong> 200g grilled chicken breast, 1 cup jasmine rice, massive serving of steamed
+                broccoli. Basic, effective, repeatable.</li>
+            <li><strong>THE CARNIVORE BOWL:</strong> 250g lean ground beef (93/7), half an avocado, bell peppers, hot
+                sauce. Zero carbs, high satiety.</li>
+        </ul>
+
+        <h3>DINNER / RECOVERY</h3>
+        <ul class="warmup-list">
+            <li><strong>THE OMEGA:</strong> 200g wild caught salmon fillet, 1 large baked sweet potato, asparagus
+                roasted in 1 tbsp olive oil. Elite recovery fuel.</li>
+            <li><strong>THE STANDARD:</strong> Lean sirloin steak, massive side salad loaded with leafy greens,
+                cucumber, and a light vinaigrette.</li>
+        </ul>
+        <span class="page-number">07</span>
+    </section>
+
+    <!-- PAGE 8: DAY 01 -->
+    <section class="page noise" style="background: var(--black);">
+        <span class="phase-label">PHASE 1 — THE FOUNDATION</span>
+        <h2>DAY 01: FULL BODY STRENGTH</h2>
+        <div class="focus">Establish the baseline. Control the eccentric.</div>
+
+        <p class="workout-copy">Day 1 sets the tone for the entire month. You leave your excuses at the door today. We
+            initiate with compound movements to wake up the central nervous system. Goblet squats will build the base;
+            keep your chest up, drive through your heels, and do not let your knees cave. The floor press will attack
+            your chest and triceps while protecting your shoulders. Focus heavily on the eccentric (lowering) phase. If
+            it's not burning, your dumbbells are too light.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Goblet Squats</td>
+                    <td>4</td>
+                    <td>12</td>
+                    <td>60s</td>
+                </tr>
+                <tr>
+                    <td>DB Floor Press</td>
+                    <td>4</td>
+                    <td>12</td>
+                    <td>60s</td>
+                </tr>
+                <tr>
+                    <td>Bent-Over Rows</td>
+                    <td>4</td>
+                    <td>12</td>
+                    <td>60s</td>
+                </tr>
+                <tr>
+                    <td>DB Reverse Lunges</td>
+                    <td>3</td>
+                    <td>10/leg</td>
+                    <td>60s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> The Death Hang. Hang from a pull-up bar until grip failure.
+            Repeat 3x.</div>
+        <span class="page-number">08</span>
+    </section>
+
+    <!-- PAGE 9: DAY 02 -->
+    <section class="page noise" style="background: var(--black);">
+        <h2>DAY 02: UPPER HIIT</h2>
+        <div class="focus">Cardiovascular expansion. Max reps under tension.</div>
+
+        <p class="workout-copy">Today we introduce metabolic stress. This isn't a relaxed bodybuilding pump session. The
+            40-second block means you do not drop the weights until the clock stops. Your back will burn on the Renegade
+            Rows, but you must lock your core—do not let your hips twist. When the timer hits the Burbees, turn your
+            brain off and just move. The goal here is gasping for air while demanding your upper body to continue
+            firing.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Renegade Rows</td>
+                    <td>4</td>
+                    <td>40s (Max Reps)</td>
+                    <td>20s</td>
+                </tr>
+                <tr>
+                    <td>DB Push Press</td>
+                    <td>4</td>
+                    <td>40s (Max Reps)</td>
+                    <td>20s</td>
+                </tr>
+                <tr>
+                    <td>Pushups</td>
+                    <td>4</td>
+                    <td>40s (Max Reps)</td>
+                    <td>20s</td>
+                </tr>
+                <tr>
+                    <td>Burpees</td>
+                    <td>4</td>
+                    <td>40s (Max Reps)</td>
+                    <td>20s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> 50 Crunches. Unbroken.</div>
+        <span class="page-number">09</span>
+    </section>
+
+    <!-- PAGE 10: DAY 03 -->
+    <section class="page noise" style="background: var(--black);">
+        <h2>DAY 03: LOWER FATIGUE</h2>
+        <div class="focus">Leg destruction. Drive through the heels.</div>
+
+        <p class="workout-copy">Your legs are the largest muscle group in your body. Training them requires massive
+            oxygen output and causes immense caloric burn. The DB Romanian Deadlift is about feeling a stretch in the
+            hamstrings; push your hips back like you are closing a door with your glutes. When you transition to Jump
+            Squats, you will want to quit. Do not. Explode upward and land softly. Embrace the lactic acid pooling in
+            your quads.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DB Romanian Deadlifts</td>
+                    <td>4</td>
+                    <td>15</td>
+                    <td>60s</td>
+                </tr>
+                <tr>
+                    <td>DB Front Squats</td>
+                    <td>4</td>
+                    <td>12</td>
+                    <td>60s</td>
+                </tr>
+                <tr>
+                    <td>Jump Squats</td>
+                    <td>4</td>
+                    <td>20</td>
+                    <td>60s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> Hollow Body Hold. 60 seconds × 3 sets.</div>
+        <span class="page-number">10</span>
+    </section>
+
+    <!-- PAGE 11: DAY 04 -->
+    <section class="page noise crosshair" style="background: var(--black);">
+        <h2>DAY 04: CORE & CARRY</h2>
+        <div class="focus">Midline stability and grip strength.</div>
+
+        <p class="workout-copy">A weak core equates to a weak body. Your spine needs armor. The Heavy Farmer's Walk is a
+            full-body movement masquerading as grip work; squeeze the dumbbells until your knuckles turn white, brace
+            your abs, and march with perfect posture. If the weight isn't trying to pull your shoulders out of their
+            sockets, you went too light. The Russian Twists must be deliberate—no sloppy momentum.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Heavy Farmer's Walk</td>
+                    <td>4</td>
+                    <td>60s (Max Distance)</td>
+                    <td>30s</td>
+                </tr>
+                <tr>
+                    <td>Russian Twists</td>
+                    <td>4</td>
+                    <td>45s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+                <tr>
+                    <td>Plank Hold</td>
+                    <td>4</td>
+                    <td>60s (Hold)</td>
+                    <td>30s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> Max effort pushups in 2 minutes. Stop only when your chest
+            gives out.</div>
+        <span class="page-number">11</span>
+    </section>
+
+    <!-- PAGE 12: DAY 05 -->
+    <section class="page noise" style="background: var(--black);">
+        <h2>DAY 05: FULL BODY METCON</h2>
+        <div class="focus">High-intensity metabolic conditioning. Gas pedal down.</div>
+
+        <p class="workout-copy">Metcon (Metabolic Conditioning) is where fat perishes. Thrusters are arguably the most
+            taxing movement you can perform with dumbbells. A full squat straight into a violent overhead press. You
+            will do this for 45 seconds straight, rest a meager 15 seconds, and go right into snatches. The rest period
+            isn't designed for recovery; it is designed merely so you don't pass out. Keep the gas pedal pressed firmly
+            to the floor.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DB Thrusters</td>
+                    <td>5</td>
+                    <td>45s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+                <tr>
+                    <td>Alt DB Snatches</td>
+                    <td>5</td>
+                    <td>45s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+                <tr>
+                    <td>Mountain Climbers</td>
+                    <td>5</td>
+                    <td>45s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> 30 Jump Squats.</div>
+        <span class="page-number">12</span>
+    </section>
+
+    <!-- PAGE 13: DAY 06 & 07 -->
+    <section class="page split-page noise">
+        <div class="split-top split-red">
+            <h2 style="font-size: 2.2rem;">DAY 06 & 07:<br>THE GRIND & RECOVERY</h2>
+            <h3>DAY 06: THE GRIND</h3>
+            <p>The ultimate punishment. <strong style="color: var(--black);">100 Man-Makers for Time.</strong></p>
+            <p class="small">This is a psychological test. The movement: Pushup → Right arm row → Left arm row → Jump
+                feet forward → Stand up into a Push Press. That is ONE rep. Execute 100 as fast as humanly possible. You
+                will want to quit at 30. Your lungs will burn at 50. Keep going. Document your time.</p>
+        </div>
+        <div class="split-bottom split-black">
+            <h3>DAY 07: MANDATORY RECOVERY</h3>
+            <p>You survived Week 1, but the real work has barely begun. Eat a high-protein diet today to repair the
+                muscle tearing from yesterday. Drink a full gallon of water. Walk outside for 45 minutes to flush the
+                lactic acid from your legs. Sleep at least 9 hours. You will need it for Phase 2.</p>
+        </div>
+        <span class="page-number">13</span>
+    </section>
+
+    <!-- PAGE 14: DAY 08 -->
+    <section class="page noise" style="background: var(--black);">
+        <span class="phase-label">PHASE 2 — THE FIRE</span>
+        <h2>DAY 08: PUSH HEAVY</h2>
+        <div class="focus">Rest is reduced to 45s. Add 5 lbs to your dumbbells if applicable.</div>
+
+        <p class="workout-copy">Phase 2 tightens the screws. By reducing the rest period to 45 seconds, we are forcing
+            your body to recover faster under a heavier load. This is a pure push day. On the DB Floor Press, completely
+            stop the momentum at the bottom by letting your triceps rest on the floor for a microsecond before exploding
+            upward. The flyes should stretch the pectorals violently.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DB Floor Press</td>
+                    <td>5</td>
+                    <td>10</td>
+                    <td>45s</td>
+                </tr>
+                <tr>
+                    <td>DB Chest Flyes</td>
+                    <td>4</td>
+                    <td>12</td>
+                    <td>45s</td>
+                </tr>
+                <tr>
+                    <td>DB Clean & Press</td>
+                    <td>4</td>
+                    <td>10</td>
+                    <td>45s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> Pushups to failure × 3 sets. Break the 90-degree plane on every
+            rep.</div>
+        <span class="page-number">14</span>
+    </section>
+
+    <!-- PAGE 15: DAY 09 -->
+    <section class="page noise" style="background: var(--black);">
+        <h2>DAY 09: PULL HEAVY</h2>
+        <div class="focus">Back width and bicep thickness. Squeeze the lats.</div>
+
+        <p class="workout-copy">You cannot build an imposing physique without a massive back. Today focuses strictly on
+            pulling mechanics. On the Bent-Over Rows, keep your back completely flat—parallel to the floor. Pull the
+            dumbbells to your hips, not your chest. For the pullovers, lie on the floor or a bench, utilizing a single
+            heavy dumbbell. Stretch the lats out maximally at the bottom of the movement. Build the armor.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DB Bent-Over Rows</td>
+                    <td>5</td>
+                    <td>10</td>
+                    <td>45s</td>
+                </tr>
+                <tr>
+                    <td>DB Pullovers</td>
+                    <td>4</td>
+                    <td>12</td>
+                    <td>45s</td>
+                </tr>
+                <tr>
+                    <td>Alt DB Curls</td>
+                    <td>4</td>
+                    <td>10/arm</td>
+                    <td>45s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> The Death Hang. 3× to failure. Your forearms must scream.</div>
+        <span class="page-number">15</span>
+    </section>
+
+    <!-- PAGE 16: DAY 10 -->
+    <section class="page noise" style="background: var(--black);">
+        <h2>DAY 10: LOWER HIIT</h2>
+        <div class="focus">Lactic acid threshold. Do not stop moving.</div>
+
+        <p class="workout-copy">Welcome to the crucible. Lower body HIIT is notoriously unpleasant because of the
+            immense cardiovascular demand. DB Front Squats force your core to fire to keep the weight from collapsing
+            your chest. The DB Swings must be powered 100% by the hips—thrust violently forward and let the dumbbells
+            float. Broad Jumps demand explosive power when you are already fatigued. Fight through it.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DB Front Squats</td>
+                    <td>5</td>
+                    <td>45s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+                <tr>
+                    <td>DB Swings</td>
+                    <td>5</td>
+                    <td>45s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+                <tr>
+                    <td>Broad Jumps</td>
+                    <td>5</td>
+                    <td>45s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> 60-second Wall Sit × 3. Find your happy place.</div>
+        <span class="page-number">16</span>
+    </section>
+
+    <!-- PAGE 17: DAY 11 -->
+    <section class="page noise" style="background: var(--black);">
+        <h2>DAY 11: UPPER METCON</h2>
+        <div class="focus">Shoulder and chest destruction under the clock.</div>
+
+        <p class="workout-copy">We are returning to maximum effort within tightly constrained time blocks. 45 seconds of
+            work feels like an eternity when the load is heavy. Maintain unbroken tension. Do not lock out your elbows
+            completely on the push press; keep the deltoids under constant strain. Use your legs for a slight dip and
+            drive on the press. Push the pace.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Renegade Rows</td>
+                    <td>4</td>
+                    <td>45s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+                <tr>
+                    <td>DB Push Press</td>
+                    <td>4</td>
+                    <td>45s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+                <tr>
+                    <td>Tricep Extensions</td>
+                    <td>4</td>
+                    <td>45s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> 50 V-Ups. Unbroken. Do not let your heels touch the floor.
+        </div>
+        <span class="page-number">17</span>
+    </section>
+
+    <!-- PAGE 18: DAY 12 -->
+    <section class="page noise" style="background: var(--black);">
+        <h2>DAY 12: THE GAUNTLET</h2>
+        <div class="focus">Pure survival. 50s of work is brutal. Breathe when you can.</div>
+
+        <p class="workout-copy">The Gauntlet removes the illusion that you are in control. 50 seconds of work with only
+            10 seconds of rest means you barely have time to take two deep breaths before initiating the next set.
+            Thrusters combined with Burpees will absolutely redline your heart rate. This day is about pure,
+            unadulterated grit. When the final buzzer sounds, you should have nothing left to give.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DB Thrusters</td>
+                    <td>4</td>
+                    <td>50s (Max Reps)</td>
+                    <td>10s</td>
+                </tr>
+                <tr>
+                    <td>Burpees</td>
+                    <td>4</td>
+                    <td>50s (Max Reps)</td>
+                    <td>10s</td>
+                </tr>
+                <tr>
+                    <td>Jump Squats</td>
+                    <td>4</td>
+                    <td>50s (Max Reps)</td>
+                    <td>10s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> Lay on the floor and question your life choices.</div>
+        <span class="page-number">18</span>
+    </section>
+
+    <!-- PAGE 19: DAY 13 & 14 -->
+    <section class="page split-page noise">
+        <div class="split-top split-red">
+            <h2 style="font-size: 2.2rem;">DAY 13 & 14:<br>THE GRIND & RECOVERY</h2>
+            <h3>DAY 13: THE GRIND</h3>
+            <p><strong style="color: var(--black);">150 Man-Makers for Time.</strong></p>
+            <p class="small">You beat 100 last week. The volume has increased by 50%. This is progressive overload in
+                its most brutal form. Pace yourself early, because reps 80 through 120 will show you what you are truly
+                made of. Do not stop. Do not lower the weight.</p>
+        </div>
+        <div class="split-bottom split-black">
+            <h3>DAY 14: MANDATORY RECOVERY</h3>
+            <p>Hydrate. Fix your mind. Tissue repair happens now. Eat premium fuel; steak, eggs, and massive amounts of
+                greens. Walk 45 minutes to get the blood flowing. You are halfway through The Forge. Week 3 will break
+                you if you are not mentally prepared.</p>
+        </div>
+        <span class="page-number">19</span>
+    </section>
+
+    <!-- PAGE 20: DAY 15 -->
+    <section class="page noise" style="background: var(--black);">
+        <span class="phase-label">PHASE 3 — THE FORGE</span>
+        <h2>DAY 15: LEGS & LUNGS</h2>
+        <div class="focus">Rest slashed to 30s. Grip the iron. Increase reps to demand adaptation.</div>
+
+        <p class="workout-copy">Welcome to Phase 3. The safety rails are gone. Rest periods are now a ruthless 30
+            seconds. By constantly keeping the muscle under tension, we trigger hypertrophy and massive fat oxidation.
+            Bulgarian Split Squats are widely considered the most painful leg exercise in existence; keep your chest up
+            and drive through your front heel. The DB Deadlifts should scorch your hamstrings.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bulgarian Split Squats</td>
+                    <td>5</td>
+                    <td>15/leg</td>
+                    <td>30s</td>
+                </tr>
+                <tr>
+                    <td>DB Deadlifts</td>
+                    <td>5</td>
+                    <td>15</td>
+                    <td>30s</td>
+                </tr>
+                <tr>
+                    <td>Squat Jumps</td>
+                    <td>5</td>
+                    <td>20</td>
+                    <td>30s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> DB Farmer's March until grip fails entirely.</div>
+        <span class="page-number">20</span>
+    </section>
+
+    <!-- PAGE 21: DAY 16 -->
+    <section class="page noise" style="background: var(--black);">
+        <h2>DAY 16: UPPER DESTRUCTION</h2>
+        <div class="focus">Hypertrophy under extreme fatigue.</div>
+
+        <p class="workout-copy">Upper body volume is increased significantly. We are moving from mere strength to
+            inducing cellular swelling (the "pump"). Limit your rest strictly. Because the rest is so short, your
+            muscles will clear lactic acid slowly—this is an intended feature, not a bug. Make the DB Rows heavy and
+            deliberate. Isolate the side deltoids perfectly on the lateral raises.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DB Floor Press</td>
+                    <td>5</td>
+                    <td>12</td>
+                    <td>30s</td>
+                </tr>
+                <tr>
+                    <td>DB Rows</td>
+                    <td>5</td>
+                    <td>12</td>
+                    <td>30s</td>
+                </tr>
+                <tr>
+                    <td>DB Lateral Raises</td>
+                    <td>5</td>
+                    <td>15</td>
+                    <td>30s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> 100 Pushups for time. Lock out every single rep.</div>
+        <span class="page-number">21</span>
+    </section>
+
+    <!-- PAGE 22: DAY 17 -->
+    <section class="page noise" style="background: var(--black);">
+        <h2>DAY 17: TOTAL BODY HIIT</h2>
+        <div class="focus">Maximum oxygen debt.</div>
+
+        <p class="workout-copy">Six sets. You are performing six complete rotations of this circuit. The Alternating DB
+            Snatches must be explosive. Use your hips to drive the weight up, catching it locked out overhead.
+            Immediately transition to Goblet Squats while your heart is pounding. The Plank Jacks will completely shred
+            your core under cardiovascular duress. Embrace the burn.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alt DB Snatches</td>
+                    <td>6</td>
+                    <td>45s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+                <tr>
+                    <td>Goblet Squats</td>
+                    <td>6</td>
+                    <td>45s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+                <tr>
+                    <td>Plank Jacks</td>
+                    <td>6</td>
+                    <td>45s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> Hollow Body Hold. 60s × 4.</div>
+        <span class="page-number">22</span>
+    </section>
+
+    <!-- PAGE 23: DAY 18 -->
+    <section class="page noise" style="background: var(--black);">
+        <h2>DAY 18: CORE & CARRY II</h2>
+        <div class="focus">Unbreakable midline. Carry heavy weight.</div>
+
+        <p class="workout-copy">We test your functional capacity today. Carrying heavy objects is one of the most primal
+            expressions of human strength. The Farmer's Walk challenges everything from your traps down to your calves.
+            Don't shuffle your feet; take aggressive, purposeful strides. The Leg Raises must be controlled on the
+            descent—do not just drop your legs to the floor.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Heavy Farmer's Walk</td>
+                    <td>5</td>
+                    <td>60s (Max Distance)</td>
+                    <td>30s</td>
+                </tr>
+                <tr>
+                    <td>Russian Twists</td>
+                    <td>5</td>
+                    <td>60s (Max Reps)</td>
+                    <td>30s</td>
+                </tr>
+                <tr>
+                    <td>Leg Raises</td>
+                    <td>5</td>
+                    <td>45s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> Max plank hold. Don't drop until your arms physically fail.
+        </div>
+        <span class="page-number">23</span>
+    </section>
+
+    <!-- PAGE 24: DAY 19 -->
+    <section class="page noise" style="background: var(--black);">
+        <div class="watermark watermark-center">19</div>
+        <h2>DAY 19: FULL BODY STRENGTH</h2>
+        <div class="focus">Moving heavy iron while exhausted.</div>
+
+        <p class="workout-copy">You are nearing the end of Week 3, which means cumulative fatigue has deeply set into
+            your bones. This is where champions are forged. You are performing heavy complex movements in a highly
+            fatigued state. Thrusters, Reverse Lunges, Renegade Rows. This is an absolute slog. Maintain perfect
+            mechanical form even as exhaustion whispers to cut corners.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DB Thrusters</td>
+                    <td>5</td>
+                    <td>10</td>
+                    <td>30s</td>
+                </tr>
+                <tr>
+                    <td>DB Reverse Lunges</td>
+                    <td>5</td>
+                    <td>10/leg</td>
+                    <td>30s</td>
+                </tr>
+                <tr>
+                    <td>Renegade Rows</td>
+                    <td>5</td>
+                    <td>10/arm</td>
+                    <td>30s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> 50 Burpees for time.</div>
+        <span class="page-number">24</span>
+    </section>
+
+    <!-- PAGE 25: DAY 20 & 21 -->
+    <section class="page split-page noise">
+        <div class="split-top split-red">
+            <h2 style="font-size: 2.2rem;">DAY 20 & 21:<br>THE GRIND & RECOVERY</h2>
+            <h3>DAY 20: THE GRIND</h3>
+            <p><strong style="color: var(--black);">200 Man-Makers for Time.</strong></p>
+            <p class="small">The volume doubles from Week 1. This is the crucible. 200 repetitions of an exercise that
+                commands the entire body. Keep moving steadily. Do not stop to pity yourself. One rep at a time.</p>
+        </div>
+        <div class="split-bottom split-black">
+            <h3>DAY 21: MANDATORY RECOVERY</h3>
+            <p>You earned this. Consume massive quantities of meat and vegetables. Blackout your bedroom and get 9 hours
+                of sleep. Stretch your hamstrings and open your hips through deep yoga poses. Welcome to the final week.
+            </p>
+        </div>
+        <span class="page-number">25</span>
+    </section>
+
+    <!-- PAGE 26: DAY 22 -->
+    <section class="page page-red noise">
+        <span class="phase-label">PHASE 4 — THE RECKONING</span>
+        <h2>DAY 22: FULL BODY AMRAP</h2>
+        <div class="focus">AMRAP — As Many Rounds As Possible. Record total sets and reps.</div>
+        <p class="workout-copy">Phase 4 removes the concept of "sets and resting". This is a timed 30-minute
+            slaughterhouse. You perform 10 Clean & Presses, immediately do 15 Goblet Squats, immediately drop for 20
+            Pushups. That is ONE round. You keep looping through this circuit until the 30-minute timer expires. Rest
+            only when you are physically incapable of performing another rep. Note your total score.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DB Clean & Press</td>
+                    <td>AMRAP</td>
+                    <td>10</td>
+                    <td>NONE</td>
+                </tr>
+                <tr>
+                    <td>Goblet Squats</td>
+                    <td>AMRAP</td>
+                    <td>15</td>
+                    <td>NONE</td>
+                </tr>
+                <tr>
+                    <td>Pushups</td>
+                    <td>AMRAP</td>
+                    <td>20</td>
+                    <td>NONE</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> Collapse.</div>
+        <span class="page-number">26</span>
+    </section>
+
+    <!-- PAGE 27: DAY 23 -->
+    <section class="page page-red noise">
+        <h2>DAY 23: UPPER AMRAP</h2>
+        <div class="focus">Continuous upper body tension.</div>
+        <p class="workout-copy">We are destroying the upper body with another 30-minute continuous loop. The DB Floor
+            Press will fatigue your chest, the Renegade Rows will tax your lats and core, and the DB Bicep Curls will
+            pump your arms to bursting. Your grip will be a massive limiting factor here. Tape your hands if you must,
+            but do not drop the weights without a fight.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DB Floor Press</td>
+                    <td>AMRAP</td>
+                    <td>15</td>
+                    <td>NONE</td>
+                </tr>
+                <tr>
+                    <td>Renegade Rows</td>
+                    <td>AMRAP</td>
+                    <td>10/arm</td>
+                    <td>NONE</td>
+                </tr>
+                <tr>
+                    <td>DB Bicep Curls</td>
+                    <td>AMRAP</td>
+                    <td>15</td>
+                    <td>NONE</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> Death Hang × 3.</div>
+        <span class="page-number">27</span>
+    </section>
+
+    <!-- PAGE 28: DAY 24 -->
+    <section class="page page-red noise">
+        <h2>DAY 24: LOWER AMRAP</h2>
+        <div class="focus">Lactic acid threshold in the lower body.</div>
+        <p class="workout-copy">30 continuous minutes focused exclusively on the legs. You will struggle to stand when
+            this is over. DB Lunges require balance while fatigued; do not slam your knee into the ground on the
+            descent. Control it. Transition directly into DB RDLs to stress the posterior chain, then ignite the central
+            nervous system with 20 jump squats. Let it burn.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DB Lunges</td>
+                    <td>AMRAP</td>
+                    <td>12/leg</td>
+                    <td>NONE</td>
+                </tr>
+                <tr>
+                    <td>DB RDLs</td>
+                    <td>AMRAP</td>
+                    <td>15</td>
+                    <td>NONE</td>
+                </tr>
+                <tr>
+                    <td>Jump Squats</td>
+                    <td>AMRAP</td>
+                    <td>20</td>
+                    <td>NONE</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> 60-second wall sit × 4.</div>
+        <span class="page-number">28</span>
+    </section>
+
+    <!-- PAGE 29: DAY 25 -->
+    <section class="page noise" style="background: var(--black);">
+        <h2>DAY 25: TOTAL BODY HIIT</h2>
+        <div class="focus">Extreme cardiovascular output.</div>
+        <p class="workout-copy">We are back to the black grid, but the intensity remains at its peak. This is arguably
+            the most brutal 1-minute work block of the entire program. 60 seconds of DB Thrusters is a nightmare. 60
+            seconds of DB Swings demands iron lungs. 60 seconds of Burpees is pure cardiovascular punishment. With only
+            15 seconds to transition, you must be a machine.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DB Thrusters</td>
+                    <td>5</td>
+                    <td>60s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+                <tr>
+                    <td>DB Swings</td>
+                    <td>5</td>
+                    <td>60s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+                <tr>
+                    <td>Burpees</td>
+                    <td>5</td>
+                    <td>60s (Max Reps)</td>
+                    <td>15s</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> 100 Crunches. Strict form.</div>
+        <span class="page-number">29</span>
+    </section>
+
+    <!-- PAGE 30: DAY 26 -->
+    <section class="page noise" style="background: var(--black);">
+        <h2>DAY 26: THE GAUNTLET AMRAP</h2>
+        <div class="focus">Empty the tank completely.</div>
+        <p class="workout-copy">The final AMRAP. 30 minutes, zero prescribed rest. This is a blistering fast circuit.
+            The Snatches demand explosive hip power. The Pushups demand rigid mechanics. The Mountain Climbers will
+            ensure your heart rate stays pinned directly in the red zone. This is the last pure conditioning day. Empty
+            the tank completely.</p>
+
+        <table class="red-border">
+            <thead>
+                <tr>
+                    <th>Movement</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alt DB Snatches</td>
+                    <td>AMRAP</td>
+                    <td>10/arm</td>
+                    <td>NONE</td>
+                </tr>
+                <tr>
+                    <td>Pushups</td>
+                    <td>AMRAP</td>
+                    <td>15</td>
+                    <td>NONE</td>
+                </tr>
+                <tr>
+                    <td>Mountain Climbers</td>
+                    <td>AMRAP</td>
+                    <td>30</td>
+                    <td>NONE</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="finisher"><strong>FINISHER:</strong> DB Farmer's March to failure.</div>
+        <span class="page-number">30</span>
+    </section>
+
+    <!-- PAGE 31: DAY 27 & 28 -->
+    <section class="page split-page noise">
+        <div class="split-top split-red">
+            <h2 style="font-size: 2.2rem;">DAY 27 & 28:<br>FINAL GRIND & RECOVERY</h2>
+            <h3>DAY 27: THE FINAL GRIND</h3>
+            <p><strong style="color: var(--black);">250 Man-Makers for Time.</strong></p>
+            <p class="small">The climax of the program. 250 reps. This will likely take you over an hour of continuous,
+                brutal effort. Destroy your previous limits. This is what you trained 26 days for. Do not leave the
+                floor until 250 is completed.</p>
+        </div>
+        <div class="split-bottom split-black">
+            <h3>DAY 28: TISSUE REPAIR</h3>
+            <p>The physical work is done. Active recovery. 45-minute walk. Stretch aggressively. Flush the massive
+                amount of metabolic waste from your system. Reflect on the work you have just completed.</p>
+        </div>
+        <span class="page-number">31</span>
+    </section>
+
+    <!-- PAGE 32: DAY 29 & 30 -->
+    <section class="page noise" style="background: var(--dark);">
+        <h2 style="font-size: 3rem;">PROTOCOL<br>COMPLETE.</h2>
+        <div class="divider"></div>
+        <p>Look in the mirror. Check your tracking data. You survived the 30 days. You are stronger, leaner, and harder
+            to kill.</p>
+        <p>But fitness is forever. You do not hit a goal and then stop. Stopping is how you revert back to the weak
+            version of yourself.</p>
+        <p>The Forge was never just about 30 days. It was about resetting your baseline for what you define as "hard
+            work". Most people's maximum effort is your new warmup.</p>
+
+        <h3 style="margin-top: 24px;">DAYS 29 & 30: ASSESSMENT & BASELINE</h3>
+        <p>RECOVER. Eat. Hydrate. Document your physical changes (weight dropped, performance times slashed on The
+            Grind). Plan your next phase. Recalculate your caloric needs. Enjoy the victory for exactly 48 hours, and
+            then set a new target.</p>
+        <span class="page-number">32</span>
+    </section>
+
+    <!-- PAGE 33: FAQ & OUTRO -->
+    <section class="page noise grid-overlay" style="background: var(--black);">
+        <h2>NO EXCUSES:<br>PROTOCOL FAQ</h2>
+        <div class="divider"></div>
+
+        <div class="faq-item">
+            <div class="faq-q">Q: I missed a day. Do I skip it or make it up?</div>
+            <div class="faq-a">You make it up. You do not skip days. Hold yourself accountable. If you skip, the entire
+                protocol is void.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Q: Can I swap an exercise if I don't like it?</div>
+            <div class="faq-a">No. You don't skip an exercise because you don't like it; you do it precisely because it
+                is hard. The movements you hate are the ones you need the most.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Q: I'm incredibly sore. Should I train?</div>
+            <div class="faq-a">Yes. Blood flow from training will help flush the lactic acid. Warm up thoroughly and get
+                to work. Soreness is weakness leaving the body.</div>
+        </div>
+
+        <div class="divider" style="margin: 24px 0;"></div>
+
+        <p class="bold uppercase red-text" style="font-size: 0.85rem; letter-spacing: 3px;">THE CLOCK IS TICKING.</p>
+        <p>You have the blueprint. The only variable left is your own willpower. No one is coming to save you.
+            Motivation is dead—it is fleeting and unreliable. Discipline is everything.</p>
+        <p class="bold uppercase red-text" style="font-size: 1.1rem; letter-spacing: 4px; margin-top: 20px;">COMMENCE
+            PROTOCOL.</p>
+        <span class="page-number">33</span>
+    </section>
+
+</body>
+
+</html>
